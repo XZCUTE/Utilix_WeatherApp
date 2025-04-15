@@ -496,8 +496,71 @@ function updateTomorrowTemperature(weatherData) {
     }
 }
 
+// Welcome screen functionality
+function hideWelcomeScreen() {
+    const welcomeScreen = document.getElementById('welcome-screen');
+    
+    // Add exit animation class
+    welcomeScreen.classList.add('welcome-exit');
+    
+    // Set transition properties
+    welcomeScreen.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
+    welcomeScreen.style.opacity = '0';
+    welcomeScreen.style.transform = 'scale(1.1)';
+    
+    // After transition completes, set display to none
+    setTimeout(() => {
+        welcomeScreen.style.display = 'none';
+    }, 1200);
+    
+    // Trigger a nice transition effect for main content
+    document.body.classList.add('content-visible');
+}
+
+// Function to add random weather effects
+function addRandomWeatherEffects() {
+    // Randomly decide which weather effect to highlight
+    const effects = ['sun', 'rain', 'snow', 'lightning'];
+    const randomEffect = effects[Math.floor(Math.random() * effects.length)];
+    
+    // Apply the random effect
+    const welcomeScreen = document.getElementById('welcome-screen');
+    welcomeScreen.classList.add(`highlight-${randomEffect}`);
+    
+    // Change every 5 seconds
+    setTimeout(() => {
+        welcomeScreen.classList.remove(`highlight-${randomEffect}`);
+        addRandomWeatherEffects();
+    }, 5000);
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
+    // Welcome screen handling
+    const enterAppButton = document.getElementById('enter-app');
+    if (enterAppButton) {
+        enterAppButton.addEventListener('click', hideWelcomeScreen);
+        
+        // Add a hover effect to make the button more interactive
+        enterAppButton.addEventListener('mouseenter', () => {
+            enterAppButton.classList.add('hover-effect');
+        });
+        
+        enterAppButton.addEventListener('mouseleave', () => {
+            enterAppButton.classList.remove('hover-effect');
+        });
+    }
+    
+    // Start random weather effects
+    addRandomWeatherEffects();
+    
+    // Auto-hide welcome screen after 8 seconds if user doesn't click button (increased from 5)
+    setTimeout(() => {
+        if (document.getElementById('welcome-screen').style.display !== 'none') {
+            hideWelcomeScreen();
+        }
+    }, 8000);
+    
     // Get DOM elements
     const themeToggle = document.getElementById('theme-toggle');
     

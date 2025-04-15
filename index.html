@@ -15,6 +15,635 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+        
+        /* UTILIX brand styling */
+        .utilix-brand {
+            display: inline-block;
+            color: #fff;
+            background: linear-gradient(135deg, #ff7f50, #ff6b6b);
+            padding: 0.2em 0.5em;
+            border-radius: 8px;
+            margin-bottom: 0.2em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(255, 127, 80, 0.5);
+            transform: skew(-5deg);
+            position: relative;
+            animation: brandAnimation 8s infinite alternate;
+        }
+        
+        .utilix-brand:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            animation: borderPulse 3s infinite;
+        }
+        
+        @keyframes brandAnimation {
+            0%, 100% {
+                transform: skew(-5deg) translateY(0);
+                box-shadow: 0 4px 15px rgba(255, 127, 80, 0.5);
+            }
+            50% {
+                transform: skew(-5deg) translateY(-5px);
+                box-shadow: 0 15px 25px rgba(255, 127, 80, 0.3);
+            }
+        }
+        
+        @keyframes borderPulse {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+        
+        /* Main content transition effect */
+        body.content-visible .main-content {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+        
+        /* Welcome Screen Animations */
+        
+        /* Exit animation for welcome screen */
+        .welcome-exit {
+            animation: zoomOut 1.2s ease-out forwards !important;
+        }
+        
+        @keyframes zoomOut {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); opacity: 0; }
+        }
+        
+        /* Highlight effects for different weather types */
+        .highlight-sun .sun {
+            transform: scale(1.2);
+            box-shadow: 0 0 60px 30px rgba(255, 215, 0, 0.8);
+            transition: all 1s ease-in-out;
+        }
+        
+        .highlight-rain .rain-drops:before,
+        .highlight-rain .rain-drops:after {
+            width: 10px;
+            height: 20px;
+            opacity: 1;
+            box-shadow: 
+                30px 10px 0 rgba(255, 255, 255, 0.8),
+                60px 5px 0 rgba(255, 255, 255, 0.8),
+                90px 15px 0 rgba(255, 255, 255, 0.8),
+                120px 0 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .highlight-snow .snowflakes:before,
+        .highlight-snow .snowflakes:after {
+            font-size: 24px;
+            opacity: 1;
+            text-shadow: 
+                30px 10px 0 rgba(255, 255, 255, 0.9),
+                60px 5px 0 rgba(255, 255, 255, 0.9),
+                90px 15px 0 rgba(255, 255, 255, 0.9),
+                120px 0 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .highlight-lightning .lightning {
+            opacity: 1;
+            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.4);
+            animation: lightning-pulse 1s infinite alternate;
+        }
+        
+        @keyframes lightning-pulse {
+            from { opacity: 0.7; }
+            to { opacity: 1; box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.6); }
+        }
+        
+        /* Button hover effect */
+        #enter-app.hover-effect {
+            transform: scale(1.1) !important;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .welcome-animation {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+        
+        /* Text shadows for better visibility */
+        .text-shadow-lg {
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Stars background */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+                        0 0 0 2px rgba(255, 255, 255, 0.1),
+                        0 0 0 3px rgba(255, 255, 255, 0.1),
+                        0 0 0 4px rgba(255, 255, 255, 0.1),
+                        0 0 0 5px rgba(255, 255, 255, 0.1),
+                        0 0 0 6px rgba(255, 255, 255, 0.1),
+                        0 0 20px rgba(255, 255, 255, 0.8),
+                        0 0 30px rgba(255, 255, 255, 0.8),
+                        0 0 40px rgba(255, 255, 255, 0.8),
+                        0 0 50px rgba(255, 255, 255, 0.8),
+                        0 0 60px rgba(255, 255, 255, 0.8),
+                        0 0 70px rgba(255, 255, 255, 0.8),
+                        0 0 80px rgba(255, 255, 255, 0.8),
+                        0 0 90px rgba(255, 255, 255, 0.8),
+                        0 0 100px rgba(255, 255, 255, 0.8),
+                        0 0 150px rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            transform: scale(0.1);
+        }
+        
+        /* Twinkling animation */
+        .twinkling {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsAQMAAABDsxw+AAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlP/AOW3MEoAAAACSURBVFjD7cExAQAAAMKg9U9tCU+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8G7aeBAR4bv84AAAAASUVORK5CYII=') repeat;
+            animation: twinkling 20s linear infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes twinkling {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
+        
+        /* Sun and Moon container */
+        .sun-moon-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 120px;
+        }
+        
+        /* Sun animations */
+        .sun-animation {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: dayCycle 20s ease-in-out infinite alternate;
+        }
+        
+        .sun {
+            width: 80px;
+            height: 80px;
+            background: #FFD700;
+            border-radius: 50%;
+            box-shadow: 0 0 40px 15px rgba(255, 215, 0, 0.6);
+            animation: pulse 3s infinite;
+        }
+        
+        .rays {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+        }
+        
+        .rays:before, .rays:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 140px;
+            height: 6px;
+            background: rgba(255, 215, 0, 0.6);
+            transform: translate(-50%, -50%);
+            border-radius: 3px;
+        }
+        
+        .rays:after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+        
+        .rays:before {
+            animation: pulse 3s infinite;
+        }
+        
+        /* Moon animations */
+        .moon-animation {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: nightCycle 20s ease-in-out infinite alternate;
+        }
+        
+        .moon {
+            width: 70px;
+            height: 70px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .moon:before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 20px;
+            height: 20px;
+            background: rgba(220, 220, 220, 0.8);
+            border-radius: 50%;
+        }
+        
+        .moon:after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: 15px;
+            height: 15px;
+            background: rgba(220, 220, 220, 0.8);
+            border-radius: 50%;
+        }
+        
+        @keyframes dayCycle {
+            0%, 45% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            50%, 95% { opacity: 0; transform: translateX(-50%) translateY(100px); }
+            100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        
+        @keyframes nightCycle {
+            0%, 45% { opacity: 0; transform: translateX(-50%) translateY(100px); }
+            50%, 95% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(100px); }
+        }
+        
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0.6;
+                transform: scale(0.95);
+            }
+        }
+        
+        /* Birds animations */
+        .birds-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .bird {
+            position: absolute;
+            background: transparent;
+            z-index: 10;
+        }
+        
+        .bird:before, .bird:after {
+            content: '';
+            position: absolute;
+            background: #fff;
+            height: 8px;
+            width: 20px;
+            border-radius: 5px 60%;
+            transform-origin: right;
+        }
+        
+        .bird:before {
+            top: 0;
+            animation: birdWingTop 0.5s ease-in-out infinite;
+        }
+        
+        .bird:after {
+            bottom: 0;
+            animation: birdWingBottom 0.5s ease-in-out infinite;
+        }
+        
+        .bird1 {
+            top: 30%;
+            left: -10%;
+            animation: birdFly1 15s linear infinite;
+        }
+        
+        .bird2 {
+            top: 50%;
+            left: -5%;
+            animation: birdFly2 20s linear infinite;
+            animation-delay: 3s;
+        }
+        
+        .bird3 {
+            top: 20%;
+            left: -8%;
+            animation: birdFly3 18s linear infinite;
+            animation-delay: 7s;
+        }
+        
+        @keyframes birdWingTop {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(-40deg); }
+        }
+        
+        @keyframes birdWingBottom {
+            0%, 100% { transform: rotate(10deg); }
+            50% { transform: rotate(40deg); }
+        }
+        
+        @keyframes birdFly1 {
+            0% { transform: translate(0, 0) scale(0.8); }
+            100% { transform: translate(400px, -100px) scale(0.6); }
+        }
+        
+        @keyframes birdFly2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(400px, 50px) scale(0.7); }
+        }
+        
+        @keyframes birdFly3 {
+            0% { transform: translate(0, 0) scale(0.6); }
+            100% { transform: translate(400px, -40px) scale(0.9); }
+        }
+        
+        /* Cloud container and clouds */
+        .cloud-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 80px;
+        }
+        
+        .cloud {
+            position: absolute;
+            width: 140px;
+            height: 60px;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.9;
+            box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cloud:before, .cloud:after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .cloud:before {
+            width: 70px;
+            height: 70px;
+            top: -30px;
+            left: 20px;
+        }
+        
+        .cloud:after {
+            width: 60px;
+            height: 60px;
+            top: -20px;
+            right: 20px;
+        }
+        
+        .cloud1 {
+            left: -80px;
+            top: 20px;
+            transform: scale(0.8);
+            animation: moveCloud1 25s linear infinite;
+        }
+        
+        .cloud2 {
+            right: -100px;
+            top: 80px;
+            transform: scale(1.2);
+            animation: moveCloud2 30s linear infinite;
+            animation-delay: 5s;
+        }
+        
+        .cloud3 {
+            left: -120px;
+            top: 140px;
+            transform: scale(0.7);
+            animation: moveCloud3 35s linear infinite;
+            animation-delay: 13s;
+        }
+        
+        @keyframes moveCloud1 {
+            0% { transform: translateX(0) scale(0.8); }
+            100% { transform: translateX(500px) scale(0.8); }
+        }
+        
+        @keyframes moveCloud2 {
+            0% { transform: translateX(0) scale(1.2); }
+            100% { transform: translateX(-500px) scale(1.2); }
+        }
+        
+        @keyframes moveCloud3 {
+            0% { transform: translateX(0) scale(0.7); }
+            100% { transform: translateX(500px) scale(0.7); }
+        }
+        
+        /* Rain drops animations */
+        .rain-drops {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            bottom: -90px;
+            left: 0;
+        }
+        
+        .rain-drops:before, .rain-drops:after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50% 50% 0 50%;
+        }
+        
+        .rain-drops:before {
+            width: 8px;
+            height: 15px;
+            left: 30%;
+            animation: rainDrop 1.5s infinite linear;
+            transform: rotate(30deg);
+        }
+        
+        .rain-drops:after {
+            width: 6px;
+            height: 12px;
+            left: 60%;
+            animation: rainDrop 1.2s infinite linear;
+            animation-delay: 0.5s;
+            transform: rotate(30deg);
+        }
+        
+        @keyframes rainDrop {
+            0% {
+                transform: translateY(-10px) rotate(30deg);
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(70px) rotate(30deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Snowflakes animations */
+        .snowflakes {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            bottom: -90px;
+            left: 0;
+        }
+        
+        .snowflakes:before, .snowflakes:after {
+            content: '❄';
+            font-size: 18px;
+            position: absolute;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .snowflakes:before {
+            left: 35%;
+            animation: snowFall 3s infinite linear;
+        }
+        
+        .snowflakes:after {
+            left: 65%;
+            font-size: 12px;
+            animation: snowFall 4s infinite linear;
+            animation-delay: 1s;
+        }
+        
+        @keyframes snowFall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 0;
+            }
+            30% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(70px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Lightning animation */
+        .lightning {
+            position: absolute;
+            top: 110px;
+            left: 30%;
+            width: 12px;
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,0) 100%);
+            transform: rotate(20deg);
+            opacity: 0;
+            animation: lightning 10s infinite;
+        }
+        
+        @keyframes lightning {
+            0%, 95%, 98% {
+                opacity: 0;
+            }
+            96%, 97% {
+                opacity: 1;
+            }
+        }
+        
+        /* Welcome content animations */
+        .welcome-title {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .welcome-subtitle {
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #enter-app {
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        /* Pulse animation for the button */
+        .pulse-animation {
+            animation: fadeInUp 1s ease-out 0.6s forwards, pulse-button 2s infinite;
+        }
+        
+        @keyframes pulse-button {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .sidebar {
             position: fixed;
             left: 0;
@@ -421,6 +1050,58 @@
     <script src="app.js" defer></script>
 </head>
 <body class="bg-gray-100">
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="fixed inset-0 flex flex-col items-center justify-center z-50 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-400 text-white overflow-hidden">
+        <!-- Background elements -->
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        
+        <!-- Main animated scene -->
+        <div class="welcome-animation relative mb-8">
+            <!-- Sun and moon -->
+            <div class="sun-moon-container">
+                <div class="sun-animation">
+                    <div class="sun"></div>
+                    <div class="rays"></div>
+                </div>
+                <div class="moon-animation">
+                    <div class="moon"></div>
+                </div>
+            </div>
+            
+            <!-- Flying birds -->
+            <div class="birds-container">
+                <div class="bird bird1"></div>
+                <div class="bird bird2"></div>
+                <div class="bird bird3"></div>
+            </div>
+            
+            <!-- Clouds with rain and snow -->
+            <div class="cloud-container">
+                <div class="cloud cloud1">
+                    <div class="rain-drops"></div>
+                </div>
+                <div class="cloud cloud2">
+                    <div class="snowflakes"></div>
+                </div>
+                <div class="cloud cloud3"></div>
+            </div>
+            
+            <!-- Lightning effect -->
+            <div class="lightning"></div>
+        </div>
+        
+        <div class="welcome-content text-center z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-wide welcome-title text-shadow-lg">
+                <span class="utilix-brand">UTILIX</span><br class="md:hidden"> WEATHER DASHBOARD
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 welcome-subtitle text-shadow-sm">Your personal weather companion</p>
+            <button id="enter-app" class="px-8 py-4 bg-white text-purple-600 rounded-full font-bold transform hover:scale-105 transition-transform duration-300 shadow-xl pulse-animation">
+                Enter Dashboard
+            </button>
+        </div>
+    </div>
+
     <!-- Button to toggle sidebar -->
     <!-- <button id="sidebar-toggle" class="lg:hidden bg-transparent text-blue-500 p-2 rounded-lg fixed top-4 left-4 z-50 border border-blue-500 hover:bg-blue-500 hover:text-white transition duration-300">
         <i class="fas fa-bars"></i>
